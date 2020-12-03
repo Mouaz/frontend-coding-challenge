@@ -1,0 +1,48 @@
+<div class="center">
+<input class="search-text" placeholder="Search Movie..." (keyup)="onKey($event)">
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem>
+      <a ngbNavLink>AMC</a>
+      <ng-template ngbNavContent>
+        <ul class="heroes">
+            <li *ngFor="let st of amc" >
+                <div class="card">
+                    <img src="{{st.poster}}" alt="Poster">
+                      <h4>{{st.title}}<span class="text-muted"> ({{st.rating}})</span></h4>
+                      <p>{{st.times.join(' ')}}</p>
+                  </div>
+            </li>
+          </ul>
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Pacific Theatres</a>
+      <ng-template ngbNavContent>
+        <ul class="heroes">
+            <li *ngFor="let st of pt" >
+                <div class="card">
+                    <img src="{{st.poster}}" alt="Poster">
+                      <h4>{{st.title}}<span class="text-muted"> ({{st.rating}})</span></h4>
+                      <p>{{st.times.join(' ')}}</p>
+                  </div>
+            </li>
+          </ul>
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+        <a ngbNavLink>Arclight</a>
+        <ng-template ngbNavContent>
+            <ul class="heroes">
+                <li *ngFor="let st of arc" >
+                    <div class="card">
+                        <img src="{{st.poster}}" alt="Poster">
+                          <h4>{{st.title}}<span class="text-muted"> ({{st.rating}})</span></h4>
+                          <p>{{st.times.join(' ')}}</p>
+                      </div>
+                </li>
+              </ul>
+          </ng-template>
+      </li>
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>
+</div>
